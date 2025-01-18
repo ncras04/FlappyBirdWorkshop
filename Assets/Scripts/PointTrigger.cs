@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PointCatcher : MonoBehaviour
+public class PointTrigger : MonoBehaviour
 {
     public static event Action PointCollected;
 

@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public class PointCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        PointCatcher.PointCollected += OnPointCollected;
+        PointTrigger.PointCollected += OnPointCollected;
     }
 
     private void Start()
@@ -25,7 +24,7 @@ public class PointCounter : MonoBehaviour
 
     private void OnDisable()
     {
-        PointCatcher.PointCollected -= OnPointCollected;
+        PointTrigger.PointCollected -= OnPointCollected;
     }
 
     private void OnPointCollected()

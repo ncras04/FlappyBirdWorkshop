@@ -7,28 +7,34 @@ public class ObstacleMovement : MonoBehaviour
 
     [SerializeField]
     private float _translationSpeed = 5.0f;
+    private bool _gameRunning;
 
     public float TranslationSpeed { get => _translationSpeed; private set => _translationSpeed = value; }
 
     private void OnEnable()
     {
-        Death.DeathLayerTouched += OnDeathLayerTouched;
+        GameBorderDetection.BorderTouched += OnBorderTouched;
+    }
+
+    private void Start()
+    {
+        _gameRunning = true;
     }
 
     private void Update()
     {
-        transform.position -= new Vector3(_translationSpeed, 0, 0) * Time.deltaTime;
+        if (!_gameRunning)
+            return;
 
-        if (transform.position.x < -5)
-            ReturnToSpawner();
+        transform.position -= new Vector3(_translationSpeed, 0, 0) * Time.deltaTime;
     }
     private void OnDisable()
     {
-        Death.DeathLayerTouched -= OnDeathLayerTouched;
+        GameBorderDetection.BorderTouched -= OnBorderTouched;
     }
-    private void OnDeathLayerTouched()
+    private void OnBorderTouched()
     {
-        _translationSpeed = 0;
+        _gameRunning = false;
     }
 
     public void ChangeSpeed(float speedChange)

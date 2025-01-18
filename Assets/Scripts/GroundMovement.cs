@@ -13,23 +13,23 @@ public class GroundMovement : MonoBehaviour
 
     private Vector3 _startPositionA;
     private Vector3 _startPositionB;
-    private bool _isAlive;
+    private bool _gameRunning;
 
     private void OnEnable()
     {
-        Death.DeathLayerTouched += OnDeathLayerTouched;
+        GameBorderDetection.BorderTouched += OnBorderTouched;
     }
 
     private void Start()
     {
-        _isAlive = true;
+        _gameRunning = true;
         _startPositionA = _spriteA.transform.position;
         _startPositionB = _spriteB.transform.position;
     }
 
     private void Update()
     {
-        if (_isAlive)
+        if (_gameRunning)
         {
             if (_spriteB.transform.position.x <= _startPositionA.x)
             {
@@ -45,12 +45,12 @@ public class GroundMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        Death.DeathLayerTouched -= OnDeathLayerTouched;
+        GameBorderDetection.BorderTouched -= OnBorderTouched;
     }
 
-    private void OnDeathLayerTouched()
+    private void OnBorderTouched()
     {
-        _isAlive = false;
+        _gameRunning = false;
     }
 }
 

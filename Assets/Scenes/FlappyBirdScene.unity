@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 95884048}
   - component: {fileID: 95884049}
   - component: {fileID: 95884050}
-  - component: {fileID: 95884051}
+  - component: {fileID: 95884053}
   m_Layer: 0
   m_Name: FlappyBird
   m_TagString: Untagged
@@ -503,21 +503,6 @@ MonoBehaviour:
   _pointLayer:
     serializedVersion: 2
     m_Bits: 2048
---- !u!114 &95884051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95884042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72cfcfbe5c941be47978da61b4620a6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deathLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!95 &95884052
 Animator:
   serializedVersion: 7
@@ -540,6 +525,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &95884053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95884042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b979fdca04f4643934bb16dbb380aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _borderLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &165038198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,8 +1594,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 1290018975}
   - {fileID: 11857222}
   - {fileID: 2087807709}
   - {fileID: 95884046}
-  - {fileID: 1290018975}
   - {fileID: 1730529057}

@@ -1,5 +1,3 @@
-using System;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,7 +19,7 @@ public class Jump : MonoBehaviour
     private void OnEnable()
     {
         _input.onActionTriggered += OnActionTriggered;
-        Death.DeathLayerTouched += OnDeathLayerTouched;
+        GameBorderDetection.BorderTouched += OnBorderTouched;
     }
 
     private void Start()
@@ -31,7 +29,7 @@ public class Jump : MonoBehaviour
 
     private void OnDisable()
     {
-        Death.DeathLayerTouched -= OnDeathLayerTouched;
+        GameBorderDetection.BorderTouched -= OnBorderTouched;
         _input.onActionTriggered -= OnActionTriggered;
     }
 
@@ -43,10 +41,10 @@ public class Jump : MonoBehaviour
 
     private void OnJump()
     {
-        _rigidbody.linearVelocityY = _targetVelocity;
+
     }
 
-    private void OnDeathLayerTouched()
+    private void OnBorderTouched()
     {
         _isAlive = false;
     }
